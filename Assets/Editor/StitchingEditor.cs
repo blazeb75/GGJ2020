@@ -12,14 +12,14 @@ public class StitchingEditor : Editor
 
         if (obj.points.Length == 0)
         {
-            obj.points = new Vector3[] { obj.transform.point };
+            obj.points = new Vector3[] { obj.transform.position };
         }
 
         for (int i = 0; i < obj.points.Length; i++)
         {
             Vector3 point = obj.points[i];
             EditorGUI.BeginChangeCheck();
-            Vector3 newTargetPos = Handles.pointHandle(point, Quaternion.identity);
+            Vector3 newTargetPos = Handles.PositionHandle(point, Quaternion.identity);
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(obj, "Moved Stitching Target point");
@@ -31,5 +31,31 @@ public class StitchingEditor : Editor
             }
         }
 
+
+        if (GUILayout.Button("Contract to mesh"))
+        {
+            Collider[] targetColliders = new Collider[targets.Length];
+            for (int i = 0; i < targets.Length; i++)
+            {
+                targetColliders[i] = obj.targets[i].GetComponent<Collider>();
+            }
+            for (int i = 0; i < obj.points.Length; i++) {
+                Vector3 point = obj.points[i];
+                float dist = Mathf.Infinity;
+                foreach (Collider col in targetColliders)
+                {
+                    Vector3 newPoint = col.ClosestPoint(point);
+                    float newDist = Vector3.Distance(newPoint, point);
+
+                    if (newDist < dist)
+                    {
+                        Physics.Raycast(new Ray(point, newPoint - point), out RaycastHit hit, Mathf.Infinity, int.MaxValue, QueryTriggerInteraction.Ignore);
+                        point = newPoint;
+                        obj.normals[i] = hit.normal;
+                        dist = newDist;
+                    }
+                }
+            }
+        }
     }
 }
