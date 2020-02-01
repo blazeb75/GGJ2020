@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2311208881781795153}
   - component: {fileID: 4354018831868618785}
   - component: {fileID: 2470701094391565047}
+  - component: {fileID: 7539591997936796138}
   m_Layer: 0
   m_Name: EyeButtonR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &2311208881781795153
 Transform:
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7539591997936796138
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307663342568621024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c5e1fe29e7378f3428dcadffe8078b7c, type: 2}

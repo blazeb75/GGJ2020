@@ -92,7 +92,7 @@ public class Stitching : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 1000);
             if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
-                )//&& targetHit.collider.gameObject == targetDecal)
+                && targetHit.collider.gameObject == targetDecal)
             {
                 Debug.Log("hit");
                 if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Ignore)

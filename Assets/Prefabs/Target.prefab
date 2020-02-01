@@ -99,7 +99,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   MaxAngle: 180
-  Offset: 0.005
+  Offset: 0.05
 --- !u!64 &-1264530983110755664
 MeshCollider:
   m_ObjectHideFlags: 0
