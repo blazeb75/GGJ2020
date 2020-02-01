@@ -26,7 +26,7 @@ public class Stitching : MonoBehaviour
     {
         targetDecal = Instantiate(targetDecal, this.transform);
         PlaceTargetDecal();
-        targetCol = targetCol.GetComponent<Collider>();
+        targetCol = targetDecal.GetComponent<Collider>();
         //targetMeshes = new Mesh[targets.Length];
         //targetColliders = new Collider[targets.Length];
         ////for(int i = 0; i < targets.Length; i++)
@@ -48,7 +48,8 @@ public class Stitching : MonoBehaviour
     void PlaceTargetDecal()
     {
         targetDecal.transform.position = points[currentTarget];
-        targetDecal.transform.LookAt(-normals[currentTarget]);
+        targetDecal.transform.forward = -normals[currentTarget];
+        targetDecal.GetComponent<DecalSystem.Decal>().BuildAndSetDirty();
     }
 
     void TargetHit(Vector3 clickPos)
@@ -84,18 +85,23 @@ public class Stitching : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //This code needs to be on the target decal TODO
+            //This code needs to be on the target decal
             RaycastHit targetHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out targetHit) && targetHit.collider == targetCol)
+            if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: int.MaxValue, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
+                )//&& targetHit.collider.gameObject == targetDecal)
             {
-                if (Physics.Raycast(ray:ray, hitInfo: out targetHit, maxDistance:Mathf.Infinity,layerMask:int.MaxValue, queryTriggerInteraction:QueryTriggerInteraction.Ignore) && others.Contains(targetHit.collider.gameObject))
+                if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: int.MaxValue, queryTriggerInteraction: QueryTriggerInteraction.Ignore)
+                    && others.Contains(targetHit.collider.gameObject))
                 {
                     point = targetHit.point;
                     return true;
                 }
+                else Debug.Log(targetHit.collider.gameObject);
             }
+            else Debug.Log(targetHit.collider.gameObject);
+
         }
         point = Vector3.zero;
         return false;

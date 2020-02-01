@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+
 namespace DecalSystem {
     using System.Collections;
     using System.Collections.Generic;
@@ -53,9 +53,13 @@ namespace DecalSystem {
             if (meshes.Contains( mesh )) MeshFilter.sharedMesh = null; // if mesh was copied
         }
 
-        void OnEnable() {
-            if (Application.isPlaying) enabled = false;
-        }
+        //void OnEnable()
+        //{
+        //    if (Application.isPlaying)
+        //    {
+        //        enabled = false;
+        //    }
+        //}
 
         void Update() {
             if (transform.hasChanged) {
@@ -64,7 +68,7 @@ namespace DecalSystem {
             }
         }
 
-
+#if UNITY_EDITOR
         void OnDrawGizmosSelected() {
             Gizmos.matrix = transform.localToWorldMatrix;
             Gizmos.color = Color.green;
@@ -86,7 +90,7 @@ namespace DecalSystem {
             //    }
             //}
         }
-
+#endif
 
         public void BuildAndSetDirty() {
             if (Sprite) DecalUtils.FixRatio( this, ref oldScale );
@@ -97,4 +101,3 @@ namespace DecalSystem {
 
     }
 }
-#endif

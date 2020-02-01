@@ -7,6 +7,7 @@ public class StitchTogetherEditor : Editor
 {
     void OnSceneGUI()
     {
+        DrawDefaultInspector();
         if (GUILayout.Button("Contract to mesh"))
         {
             StitchTogether obj = (StitchTogether)target;

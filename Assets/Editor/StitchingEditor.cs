@@ -6,8 +6,9 @@ using UnityEditor;
 [CustomEditor(typeof(Stitching))]
 public class StitchingEditor : Editor
 {
-    protected virtual void OnSceneGUI()
+    private void OnSceneGUI()
     {
+        DrawDefaultInspector();
         Stitching obj = (Stitching)target;
 
         if (obj.points.Length == 0)
@@ -30,12 +31,18 @@ public class StitchingEditor : Editor
                 Handles.DrawLine(obj.points[i], obj.points[i + 1]);
             }
         }
+    }
 
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        Stitching obj = (Stitching)target;
 
         if (GUILayout.Button("Contract to mesh"))
         {
             Undo.RecordObject(obj, "Contracted Stitching points to target mesh");
             Collider[] targetColliders = new Collider[targets.Length];
+            obj.normals = new Vector3[obj.points.Length];
             for (int i = 0; i < targets.Length; i++)
             {
                 targetColliders[i] = obj.others[i].GetComponent<Collider>();
@@ -47,13 +54,14 @@ public class StitchingEditor : Editor
                 {
                     Vector3 newPoint = col.ClosestPoint(point);
                     float newDist = Vector3.Distance(newPoint, point);
-
+                    Debug.Log("yeet");
                     if (newDist < dist)
                     {
                         Physics.Raycast(new Ray(point, newPoint - point), out RaycastHit hit, Mathf.Infinity, int.MaxValue, QueryTriggerInteraction.Ignore);
-                        point = newPoint;
+                        obj.points[i] = newPoint;
                         obj.normals[i] = hit.normal;
                         dist = newDist;
+                        Debug.Log("yote");
                     }
                 }
             }
