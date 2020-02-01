@@ -238,6 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52654f0cd4d15dc4bbc9c02d9320e151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lm:
+    serializedVersion: 2
+    m_Bits: 4294967295
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -345,6 +348,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &857005495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6687302939253690186, guid: 38d019b1546b62a41bac3d80d4a5ec92,
+    type: 3}
+  m_PrefabInstance: {fileID: 212390350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &857005496
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857005495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0bf2fed022c1db84794c725cbea788e8, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842512738931654057, guid: 31d3007653b7f84418a07bddb59fc703,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6420287113564938486, guid: 31d3007653b7f84418a07bddb59fc703,
         type: 3}

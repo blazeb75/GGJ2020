@@ -91,9 +91,10 @@ public class Stitching : MonoBehaviour
             RaycastHit targetHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 1000);
-            if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: 100f, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
+            if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
                 )//&& targetHit.collider.gameObject == targetDecal)
             {
+                Debug.Log("hit");
                 if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Ignore)
                     && others.Contains(targetHit.collider.gameObject))
                 {
@@ -113,5 +114,6 @@ public class Stitching : MonoBehaviour
     {
         targetDecal.SetActive(false);
         OnComplete.Invoke();
+        this.enabled = false;
     }
 }
