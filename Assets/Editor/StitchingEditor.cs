@@ -49,7 +49,9 @@ public class StitchingEditor : Editor
 
                     if (newDist < dist)
                     {
+                        Physics.Raycast(new Ray(point, newPoint - point), out RaycastHit hit, Mathf.Infinity, int.MaxValue, QueryTriggerInteraction.Ignore);
                         point = newPoint;
+                        obj.normals[i] = hit.normal;
                         dist = newDist;
                     }
                 }
