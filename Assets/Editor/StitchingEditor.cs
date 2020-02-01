@@ -34,10 +34,11 @@ public class StitchingEditor : Editor
 
         if (GUILayout.Button("Contract to mesh"))
         {
+            Undo.RecordObject(obj, "Contracted Stitching points to target mesh");
             Collider[] targetColliders = new Collider[targets.Length];
             for (int i = 0; i < targets.Length; i++)
             {
-                targetColliders[i] = obj.targets[i].GetComponent<Collider>();
+                targetColliders[i] = obj.others[i].GetComponent<Collider>();
             }
             for (int i = 0; i < obj.points.Length; i++) {
                 Vector3 point = obj.points[i];
