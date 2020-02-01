@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Stitching : MonoBehaviour
 {
+    public LayerMask lm;
     public UnityEvent OnComplete;
     public GameObject targetDecal;
     public GameObject stitch;
@@ -24,6 +25,7 @@ public class Stitching : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log((int)lm);
         targetDecal = Instantiate(targetDecal, this.transform);
         PlaceTargetDecal();
         targetCol = targetDecal.GetComponent<Collider>();
@@ -88,11 +90,11 @@ public class Stitching : MonoBehaviour
             //This code needs to be on the target decal
             RaycastHit targetHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: int.MaxValue, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
+            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 1000);
+            if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: 100f, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Collide) 
                 )//&& targetHit.collider.gameObject == targetDecal)
             {
-                if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: int.MaxValue, queryTriggerInteraction: QueryTriggerInteraction.Ignore)
+                if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: lm, queryTriggerInteraction: QueryTriggerInteraction.Ignore)
                     && others.Contains(targetHit.collider.gameObject))
                 {
                     point = targetHit.point;
