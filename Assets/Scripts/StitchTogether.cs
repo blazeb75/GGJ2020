@@ -65,7 +65,7 @@ public class StitchTogether : MonoBehaviour
     void PlaceTargetDecal()
     {
         targetDecal.transform.position = allPoints[currentTarget] + transform.position;
-        targetDecal.transform.forward = -normals[currentTarget];
+        targetDecal.transform.forward = -allNormals[currentTarget];
         targetDecal.GetComponent<DecalSystem.Decal>().BuildAndSetDirty();
     }
 
