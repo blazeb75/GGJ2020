@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3938852994589526451}
   - component: {fileID: 1313483083929320343}
   - component: {fileID: 804124515161085117}
+  - component: {fileID: 5626259520949651535}
+  - component: {fileID: 5592892864782900167}
   m_Layer: 0
   m_Name: EyeButtonL
   m_TagString: Untagged
@@ -27,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7588518693406060420}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0029406, y: 0.0001085, z: 0.0065297}
+  m_LocalScale: {x: 0.7118255, y: 0.7118255, z: 0.7118255}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,3 +96,55 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7874028826423937610, guid: 8014b14364fb7f64c8212496cdfa2a35, type: 3}
+--- !u!114 &5626259520949651535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588518693406060420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfafbaba6d0215b4c96c5b214002a02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
+  state: 0
+  other: {fileID: 0}
+--- !u!114 &5592892864782900167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588518693406060420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52654f0cd4d15dc4bbc9c02d9320e151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lm:
+    serializedVersion: 2
+    m_Bits: 0
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  targetDecal: {fileID: 1689961937567057743, guid: f9360976126f12a488184540b2fe37a4,
+    type: 3}
+  stitch: {fileID: 3641171683669405446, guid: 2f48d508673428c41ba16a48880e867f, type: 3}
+  others: []
+  points:
+  - {x: 0.07560013, y: 0.05, z: 0.0304912}
+  - {x: -0.035436753, y: 0.05, z: 0.0304912}
+  - {x: 0.06672068, y: -0.05, z: 0.0304912}
+  - {x: -0.043244846, y: -0.049936175, z: 0.0304912}
+  - {x: 0.06809256, y: 0.048335474, z: 0.030491203}
+  normals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  currentTarget: 0

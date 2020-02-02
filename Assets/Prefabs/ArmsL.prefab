@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8067019620185213054}
   - component: {fileID: 4381798966677009543}
   - component: {fileID: 6673163884548707669}
+  - component: {fileID: 1912660504715710223}
+  - component: {fileID: 3098292342134862829}
   m_Layer: 0
   m_Name: ArmsL
   m_TagString: Untagged
@@ -94,3 +96,65 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2766335775883421004, guid: 1f97645853cdaa8408b5d80e70e27e66, type: 3}
+--- !u!114 &1912660504715710223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866112055775386889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfafbaba6d0215b4c96c5b214002a02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3098292342134862829}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  state: 0
+  other: {fileID: 0}
+--- !u!114 &3098292342134862829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866112055775386889}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52654f0cd4d15dc4bbc9c02d9320e151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lm:
+    serializedVersion: 2
+    m_Bits: 0
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  targetDecal: {fileID: 0}
+  stitch: {fileID: 0}
+  others: []
+  points:
+  - {x: -0, y: 0.03, z: 0.06}
+  - {x: -0.09, y: 0.06, z: 0}
+  - {x: 0.028497577, y: 0.11781436, z: -0.05596304}
+  - {x: -0.083936244, y: 0.07147762, z: -0.123676986}
+  - {x: 0.033067375, y: 0.092602074, z: -0.20167696}
+  normals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  currentTarget: 0

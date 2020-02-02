@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 629117474283177359}
   - component: {fileID: 5683168117961296332}
   - component: {fileID: 6171301966250298006}
+  - component: {fileID: 2307494124050574014}
   m_Layer: 0
   m_Name: Fluff3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &629117474283177359
 Transform:
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2307494124050574014
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789236180333596928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6348371883353979739, guid: fc6dbe6a5b8c27145aea786cef933040, type: 3}
 --- !u!1 &2553721461975080019
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,12 +105,13 @@ GameObject:
   - component: {fileID: 5890886441281839675}
   - component: {fileID: 3919921882286665170}
   - component: {fileID: 8387951845033290672}
+  - component: {fileID: 7608301228262617714}
   m_Layer: 0
   m_Name: Fluff1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5890886441281839675
 Transform:
@@ -158,6 +174,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7608301228262617714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2553721461975080019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 305108199264536656, guid: fc6dbe6a5b8c27145aea786cef933040, type: 3}
 --- !u!1 &3570437656871641286
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,12 +199,13 @@ GameObject:
   - component: {fileID: 4956642137936337337}
   - component: {fileID: 4416878161379322701}
   - component: {fileID: 2105547041054462588}
+  - component: {fileID: 7454287237436929151}
   m_Layer: 0
   m_Name: Fluff2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4956642137936337337
 Transform:
@@ -237,6 +268,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7454287237436929151
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570437656871641286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7584850261835920724, guid: fc6dbe6a5b8c27145aea786cef933040, type: 3}
 --- !u!1 &6184957389276824554
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,12 +328,13 @@ GameObject:
   - component: {fileID: 7263748702441376337}
   - component: {fileID: 9127591985448793704}
   - component: {fileID: 7294782381338315500}
+  - component: {fileID: 1830368590686637825}
   m_Layer: 0
   m_Name: Fluff5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &7263748702441376337
 Transform:
@@ -351,6 +397,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1830368590686637825
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7158973931450850019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3243890362585722954, guid: fc6dbe6a5b8c27145aea786cef933040, type: 3}
 --- !u!1 &8643081217700185277
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,12 +422,13 @@ GameObject:
   - component: {fileID: 2766813988250432385}
   - component: {fileID: 9193021123295826195}
   - component: {fileID: 6790977109446796983}
+  - component: {fileID: 5855245908345655674}
   m_Layer: 0
   m_Name: Fluff4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &2766813988250432385
 Transform:
@@ -430,3 +491,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5855245908345655674
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643081217700185277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5971967948099838780, guid: fc6dbe6a5b8c27145aea786cef933040, type: 3}
