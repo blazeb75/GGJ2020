@@ -36,10 +36,9 @@ public class StitchingEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        Stitching obj = (Stitching)target;
-
         if (GUILayout.Button("Contract to mesh"))
         {
+            Stitching obj = (Stitching)target;
             Undo.RecordObject(obj, "Contracted Stitching points to target mesh");
             Collider[] targetColliders = new Collider[targets.Length];
             obj.normals = new Vector3[obj.points.Length];
@@ -54,14 +53,12 @@ public class StitchingEditor : Editor
                 {
                     Vector3 newPoint = col.ClosestPoint(point);
                     float newDist = Vector3.Distance(newPoint, point);
-                    Debug.Log("yeet");
                     if (newDist < dist)
                     {
                         Physics.Raycast(new Ray(point, newPoint - point), out RaycastHit hit, Mathf.Infinity, int.MaxValue, QueryTriggerInteraction.Ignore);
                         obj.points[i] = newPoint;
                         obj.normals[i] = hit.normal;
                         dist = newDist;
-                        Debug.Log("yote");
                     }
                 }
             }
