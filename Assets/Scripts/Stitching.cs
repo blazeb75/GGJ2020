@@ -100,9 +100,7 @@ public class Stitching : MonoBehaviour
                     point = targetHit.point;
                     return true;
                 }
-                else Debug.Log(targetHit.collider.gameObject);
             }
-            else Debug.Log(targetHit.collider.gameObject);
 
         }
         point = Vector3.zero;
