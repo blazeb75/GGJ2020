@@ -33,7 +33,7 @@ public class DragMouseOrbit : MonoBehaviour
     {
         if (target)
         {
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(2))
             {
                 velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
                 velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
