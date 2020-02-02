@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7577599543610270917}
   - component: {fileID: 341056144836676469}
   - component: {fileID: -6639015383187208669}
+  - component: {fileID: 6372783441343194436}
+  - component: {fileID: 493118009101992245}
   m_Layer: 0
   m_Name: ArmsR
   m_TagString: Untagged
@@ -94,3 +96,72 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5524418604088083322, guid: 691aa3f011b16d848a99b6d2dcfa9bb8, type: 3}
+--- !u!114 &6372783441343194436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142089237999253994}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a967167f0dfa3ae4180a6f69108a6203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  targetDecal: {fileID: 1689961937567057743, guid: f9360976126f12a488184540b2fe37a4,
+    type: 3}
+  parentPointOffset: 0.1
+  stitch: {fileID: 3641171683669405446, guid: 2f48d508673428c41ba16a48880e867f, type: 3}
+  other: {fileID: 1689961937567057743, guid: f9360976126f12a488184540b2fe37a4, type: 3}
+  points:
+  - {x: -1.4405696, y: 0.42491698, z: 0.014925756}
+  - {x: -1.4405696, y: 0.40172926, z: 0.060884118}
+  - {x: -1.4405696, y: 0.3479241, z: 0.08784879}
+  - {x: -1.4405696, y: 0.31087953, z: 0.10404203}
+  - {x: -1.4405696, y: 0.26003698, z: 0.078738235}
+  - {x: -1.4405696, y: 0.23631127, z: 0.03813316}
+  - {x: -1.4405696, y: 0.23316629, z: -0.037736192}
+  - {x: -1.4405696, y: 0.25413543, z: -0.11064986}
+  - {x: -1.4405696, y: 0.2851432, z: -0.17131186}
+  - {x: -1.4405696, y: 0.32025838, z: -0.18921238}
+  - {x: -1.4405696, y: 0.3630181, z: -0.19554953}
+  - {x: -1.4405696, y: 0.384009, z: -0.1829904}
+  - {x: -1.4405696, y: 0.40405464, z: -0.1642846}
+  - {x: -1.4405696, y: 0.4227774, z: -0.14764106}
+  - {x: -1.4405696, y: 0.429046, z: -0.12304225}
+  - {x: -1.4405696, y: 0.43368712, z: -0.09137415}
+  - {x: -1.4405696, y: 0.438858, z: -0.050402083}
+  - {x: -1.4405696, y: 0.4302665, z: -0.012034964}
+  normals: []
+  currentTarget: 0
+--- !u!114 &493118009101992245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142089237999253994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfafbaba6d0215b4c96c5b214002a02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6372783441343194436}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  state: 0
+  other: {fileID: 0}

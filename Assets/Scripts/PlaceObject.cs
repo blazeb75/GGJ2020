@@ -50,8 +50,8 @@ public class PlaceObject : MonoBehaviour
             Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit, maxDistance: Mathf.Infinity, ~0, queryTriggerInteraction: QueryTriggerInteraction.Ignore);
             if (hit.collider != null)
             {
-                transform.position = hit.point;
-                transform.rotation = Quaternion.Euler(hit.normal);
+                transform.position = hit.point + hit.normal * 0.08f;
+                transform.right = hit.normal;
             }
             else
             {
