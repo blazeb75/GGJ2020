@@ -30,6 +30,7 @@ public class PlaceObject : MonoBehaviour
             if (state == State.idle)
             {
                 state = State.held;
+                GetComponent<Collider>().isTrigger = true;
             }
         }
         if (IsClicked(1))
@@ -37,6 +38,8 @@ public class PlaceObject : MonoBehaviour
             if(state == State.held)
             {
                 state = State.idle;
+                GetComponent<Collider>().isTrigger = false;
+
                 GoToDefault();
             }
         }
@@ -44,7 +47,7 @@ public class PlaceObject : MonoBehaviour
         if(state == State.held)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit, maxDistance: Mathf.Infinity, ~0, queryTriggerInteraction: QueryTriggerInteraction.Collide);
+            Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit, maxDistance: Mathf.Infinity, ~0, queryTriggerInteraction: QueryTriggerInteraction.Ignore);
             if (hit.collider != null)
             {
                 transform.position = hit.point;
@@ -56,9 +59,10 @@ public class PlaceObject : MonoBehaviour
             }
 
             otherCol.Raycast(ray, out hit, Mathf.Infinity);
-            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject == other)
+            if (Input.GetMouseButtonDown(0) && hit.collider != null && hit.collider.gameObject == other)
             {
                 state = State.placed;
+                GetComponent<Collider>().isTrigger = false;
                 OnPlaced.Invoke();
             }
         }
