@@ -112,6 +112,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   state: 0
+  mode: 4
   other: {fileID: 0}
 --- !u!114 &5592892864782900167
 MonoBehaviour:

@@ -123,6 +123,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   state: 0
+  mode: 3
   other: {fileID: 0}
 --- !u!114 &3098292342134862829
 MonoBehaviour:
@@ -142,8 +143,9 @@ MonoBehaviour:
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
-  targetDecal: {fileID: 0}
-  stitch: {fileID: 0}
+  targetDecal: {fileID: 1689961937567057743, guid: f9360976126f12a488184540b2fe37a4,
+    type: 3}
+  stitch: {fileID: 3641171683669405446, guid: 2f48d508673428c41ba16a48880e867f, type: 3}
   others: []
   points:
   - {x: -0, y: 0.03, z: 0.06}
