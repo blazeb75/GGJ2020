@@ -87,7 +87,6 @@ public class Stitching : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //This code needs to be on the target decal
             RaycastHit targetHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 1000);
