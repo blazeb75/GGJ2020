@@ -98,7 +98,7 @@ namespace DecalSystem {
             DecalUtils.SetDirty( this );
             if(TryGetComponent<MeshCollider>(out MeshCollider col))
             {
-                col.sharedMesh = GetComponent<MeshFilter>().mesh;
+                col.sharedMesh = GetComponent<MeshFilter>().sharedMesh;
             }
         }
 

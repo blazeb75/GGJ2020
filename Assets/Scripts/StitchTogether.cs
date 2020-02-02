@@ -17,8 +17,8 @@ public class StitchTogether : MonoBehaviour
     public int currentTarget = 0;
 
 
-    private List<Vector3> allPoints = new List<Vector3>();
-    private List<Vector3> allNormals = new List<Vector3>();
+    private List<Vector3> allPoints;
+    private List<Vector3> allNormals;
     private Collider col;
     private Collider otherCol;
     private Collider targetCol;
@@ -29,7 +29,8 @@ public class StitchTogether : MonoBehaviour
     void Start()
     {
         targetDecal = Instantiate(targetDecal, this.transform);
-        PlaceTargetDecal();
+        allPoints = new List<Vector3>();
+        allNormals = new List<Vector3>();
         col = GetComponent<Collider>();
         otherCol = other.GetComponent<Collider>();
         targetCol = targetDecal.GetComponent<Collider>();
@@ -49,6 +50,8 @@ public class StitchTogether : MonoBehaviour
             allPoints.Add(newNearest);
             allNormals.Add(hit.normal);
         }
+
+        PlaceTargetDecal();
     }
 
     private void Update()
@@ -61,8 +64,9 @@ public class StitchTogether : MonoBehaviour
 
     void PlaceTargetDecal()
     {
-        targetDecal.transform.position = allPoints[currentTarget];
-        targetDecal.transform.LookAt(-allNormals[currentTarget]);
+        targetDecal.transform.position = allPoints[currentTarget] + transform.position;
+        targetDecal.transform.forward = -normals[currentTarget];
+        targetDecal.GetComponent<DecalSystem.Decal>().BuildAndSetDirty();
     }
 
     void TargetHit(Vector3 clickPos)
@@ -99,14 +103,14 @@ public class StitchTogether : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //This code needs to be on the target decal TODO
-            RaycastHit targetHit;
+            RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out targetHit) && targetHit.collider == targetCol)
+            if (Physics.Raycast(ray: ray, hitInfo: out hit, maxDistance: Mathf.Infinity, layerMask: ~0, queryTriggerInteraction: QueryTriggerInteraction.Collide))
             {
-                if (Physics.Raycast(ray: ray, hitInfo: out targetHit, maxDistance: Mathf.Infinity, layerMask: int.MaxValue, queryTriggerInteraction: QueryTriggerInteraction.Ignore) && (this.gameObject == targetHit.collider.gameObject || other == targetHit.collider.gameObject))
+                if (Physics.Raycast(ray: ray, hitInfo: out hit, maxDistance: Mathf.Infinity, layerMask: ~0, queryTriggerInteraction: QueryTriggerInteraction.Ignore) && (this.gameObject == hit.collider.gameObject || other == hit.collider.gameObject))
                 {
-                    point = targetHit.point;
+                    point = hit.point;
                     return true;
                 }
             }

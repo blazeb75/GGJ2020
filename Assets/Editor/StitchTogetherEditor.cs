@@ -2,16 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+[CustomEditor(typeof(StitchTogether))]
 public class StitchTogetherEditor : Editor
 {
-    void OnSceneGUI()
+    private void OnSceneGUI()
+    {
+        DrawDefaultInspector();
+        StitchTogether obj = (StitchTogether)target;
+
+        if (obj.points.Length == 0)
+        {
+            obj.points = new Vector3[] { obj.transform.position };
+        }
+
+        for (int i = 0; i < obj.points.Length; i++)
+        {
+            Vector3 point = obj.points[i];
+            EditorGUI.BeginChangeCheck();
+            Vector3 newTargetPos = Handles.PositionHandle(point + obj.transform.position, Quaternion.identity);
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(obj, "Moved StitchTogether target point");
+                obj.points[i] = newTargetPos - obj.transform.position;
+            }
+            if (i != obj.points.Length - 1)
+            {
+                Handles.DrawLine(obj.points[i], obj.points[i + 1]);
+            }
+        }
+    }
+
+    public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
         if (GUILayout.Button("Contract to mesh"))
         {
             StitchTogether obj = (StitchTogether)target;
             Undo.RecordObject(obj, "Contracted StitchTogether points to target mesh");
+            obj.normals = new Vector3[obj.points.Length];
             for (int i = 0; i < obj.points.Length; i++)
             {
                 Vector3 point = obj.points[i];
@@ -19,6 +47,7 @@ public class StitchTogetherEditor : Editor
                 Vector3 newPoint = col.ClosestPoint(point);
                 Physics.Raycast(new Ray(point, newPoint - point), out RaycastHit hit, Mathf.Infinity, int.MaxValue, QueryTriggerInteraction.Ignore);
                 point = newPoint;
+                obj.points[i] = point - obj.transform.position;
                 obj.normals[i] = hit.normal;
 
             }
