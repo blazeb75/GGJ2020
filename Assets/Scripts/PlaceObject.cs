@@ -7,8 +7,10 @@ using UnityEngine.Events;
 public class PlaceObject : MonoBehaviour
 {
     public UnityEvent OnPlaced;
-    public enum State {idle, held, placed}
+    public enum State {idle, held, placed};
+    public enum Mode {up, down, right, left, forward, backward};
     public State state;
+    public Mode mode;
     public GameObject other;
 
     private Collider col;
@@ -50,8 +52,28 @@ public class PlaceObject : MonoBehaviour
             Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit, maxDistance: Mathf.Infinity, ~0, queryTriggerInteraction: QueryTriggerInteraction.Ignore);
             if (hit.collider != null)
             {
-                transform.position = hit.point + hit.normal * 0.08f;
-                transform.right = hit.normal;
+                transform.position = hit.point;// + hit.normal * 0.08f;
+                switch (mode)
+                {
+                    case Mode.right:
+                        transform.right = hit.normal;
+                        break;
+                    case Mode.left:
+                        transform.right = -hit.normal;
+                        break;
+                    case Mode.up:
+                        transform.up = hit.normal;
+                        break;
+                    case Mode.down:
+                        transform.up = -hit.normal;
+                        break;
+                    case Mode.forward:
+                        transform.forward = hit.normal;
+                        break;
+                    case Mode.backward:
+                        transform.forward = -hit.normal;
+                        break;
+                }
             }
             else
             {
